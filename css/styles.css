@@ -509,17 +509,12 @@ margin-bottom: 16px;
   }
   /* Visible state */
   .modal {
-    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
-  
     transform: translateX(-50%) translateY(-50%);
-  
     width: 408px;
     height: 584px;
-  
     background-color: #FCFCFC;
     border-radius: 4px;
-  
     transition: opacity 300ms ease-out 250ms, transform 300ms ease-out 250ms;}
