@@ -26,6 +26,7 @@ img{
 --title-color:#2E2F42;
 --background:#4d5ae5 ;
 --fill-background:#f4f4fd;
+--color-link:#8e8f99;
 }
 .logo-link{
    
@@ -61,7 +62,7 @@ color: #4D5AE5 ;
     align-items: center;
 }
 .nav-item{
-    color: #404bbf;
+   
 
 }
 /*reset*/
@@ -92,6 +93,9 @@ ul,ol{
     background-color: var(--primary-black-color);
   
     border-radius: 2px;}
+    .nav-link.active{
+        color: #404bbf;
+    }
 .nav-link {
     position: relative;
 font-weight: 500;
@@ -154,15 +158,16 @@ font-style: normal;
 }
 .icon-network:focus,
 .icon-network:hover{
-    background-color: #404BBF;
+    background-color: #31d0aa;
 }
 .container-network{
   
 }
 .list-network{
     display: flex;
-    gap: 24px;
+    gap: 16px;
     justify-content: center;
+ 
 }
 .item-network{
     height: 40px;
@@ -236,11 +241,11 @@ transition:  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     flex-direction: column;
     display: flex;
 }
-button:focus{
+.btn:focus{
    background-color:  #404BBF;
    border: 1px solid transparent;
 }
-button:hover {
+.btn:hover {
     background-color: #404BBF;   
     border: 1px solid transparent;
 }
@@ -379,10 +384,8 @@ max-width: 264px
 }
 .container-footer
 {
-    flex-direction: column;
-    width: 1158px;
     margin: 0 auto;
-    padding-right: 15px;
+    margin-right: 120px
 }
 .filters-btn{
     font-family: 'Roboto', sans-serif;
@@ -431,6 +434,8 @@ appearance: none;
 }
 .project-item{
     width: calc((100% - 48px) / 3);
+    position: relative;
+    overflow: hidden;
 }
 .container-img{
     padding: 32px 16px;
@@ -445,6 +450,7 @@ appearance: none;
   }
   .clients{
     width: calc((100% - 120px) / 6);
+    height: 88px;
   }
 .clients-link {
     display: flex;
@@ -455,16 +461,27 @@ appearance: none;
     border: 1px solid #8E8F99;
     border-radius: 4px;
     transition:  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color:var(--color-link);
   }
   .clients-link:focus{
+    color: #404bbf;
+    border-color: #404BBF;
     fill: #404BBF;
   }
   .clients-link:hover {
+   color: #404bbf;
     border-color: #404BBF;
     fill: #404BBF;
   }
   .clients-link:hover .clients-icon {
     fill: #404BBF;
+}
+.clients-icon{ 
+    fill: currentColor;
+}
+.container-top{
+    display: flex;
+    align-items: baseline;
 }
 .social-title{
     font-size: 16px;
@@ -502,21 +519,39 @@ margin-bottom: 16px;
     position: absolute;
     top: 24px;
     right: 24px;
-  
+    border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-  
+    background-color: #e7e9fc;
     width: 24px;
     height: 24px;
     padding: 0;
     border-radius: 50%;
-  
+    cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .modal-btn:focus
+ {
     border: none;
-    background-color: transparent;
+    background-color: #404bbf;
+  }
+  .modal-btn:hover
+  {
+     border: none;
+     background-color: #404bbf;
+    }
+    
+     
+    .modal-btn:hover{
+    fill: #ffffff;
+  }
+  .modal-btn:focus{
+    fill: #ffffff;
   }
   .modal-icon {
     stroke: #111111;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .backdrop {
     position: fixed;
@@ -529,7 +564,7 @@ margin-bottom: 16px;
   
     background-color: rgba(46, 47, 66, 0.40);
   
-    transition: opacity 250ms ease-out, visibility 250ms ease-out;
+    transition:  opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   
     /* Default properties */
     opacity: 1;
@@ -546,10 +581,37 @@ margin-bottom: 16px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%) scale(1);
     width: 408px;
-    height: 584px;
+    min-height: 584px;
     min-width: 408px;
     background-color: #FCFCFC;
     border-radius: 4px;
-    transition: opacity 300ms ease-out 250ms, transform 300ms ease-out 250ms;}
+    transform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.overlay-text{
+    font-size: 16px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0.32px;
+color:  #F4F4FD;
+}
+.overlay{
+    width: 360px;
+    height: 300px;
+    background:  #4D5AE5;
+    padding-top: 40px;
+    padding-right: 32px;
+    padding-bottom: 164px;
+    padding-left: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(145%);
+    transition: transform  250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.project-item:hover .overlay{
+    transform: translateY(0);
+}
